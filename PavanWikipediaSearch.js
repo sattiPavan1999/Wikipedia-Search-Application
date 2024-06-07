@@ -1,15 +1,9 @@
 let searchInputEl = document.getElementById("searchInput");
-
 let searchResultsEl = document.getElementById("searchResults");
-
 let spinnerEl = document.getElementById("spinner");
 
 function createAndAppendSearchResult(result) {
-    let {
-        link,
-        title,
-        description
-    } = result;
+    let { link, title, description } = result;
 
     let resultItemEl = document.createElement("div");
     resultItemEl.classList.add("result-item");
@@ -52,7 +46,6 @@ function displayResults(searchResults) {
 
 function searchWikipedia(event) {
     if (event.key === "Enter") {
-
         spinnerEl.classList.remove("d-none");
         searchResultsEl.textContent = "";
 
@@ -67,9 +60,7 @@ function searchWikipedia(event) {
                 return response.json();
             })
             .then(function(jsonData) {
-                let {
-                    search_results
-                } = jsonData;
+                let { search_results } = jsonData;
                 displayResults(search_results);
             });
     }
